@@ -21,6 +21,10 @@ DB_USERNAME=USERNAME
 DB_PASSWORD=USERPSWD
 ```
 To migrate Database
+```
+php artisan migrate
+```
+
 Once you're in your favorite IDE or not, go to the Terminal and go to the project path
 and run with this command
 ```
