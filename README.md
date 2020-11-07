@@ -4,9 +4,14 @@ It's a simple backend CRUD make with:
 [Lumen](https://lumen.laravel.com/) Laravel Website.
 
 ##General instructions
+In your DB gestor create a new database for this project.
+```
+create database DBNAME;
+```
+
 To use this backend you must to clone this repositorie.
 
-And change some things in .env archive like you have in your DDBB 
+And change some things in .env archive like you have in your DB 
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -15,7 +20,7 @@ DB_DATABASE=DBNAME
 DB_USERNAME=USERNAME
 DB_PASSWORD=USERPSWD
 ```
-
+To migrate Database
 Once you're in your favorite IDE or not, go to the Terminal and go to the project path
 and run with this command
 ```
