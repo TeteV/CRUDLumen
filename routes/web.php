@@ -17,9 +17,19 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('directorios',['as'=>'directorios','uses'=>'DirectorioController@index']);
-$router->get('directorios/{id}',['as'=>'directorios.show','uses'=>'DirectorioController@show']);
-$router->post('directorios',['as'=>'directorios.store','uses'=>'DirectorioController@store']);
-$router->put('directorios/{id}',['as'=>'directorios.update','uses'=>'DirectorioController@update']);
-$router->delete('directorios/{id}',['as'=>'directorios.delete','uses'=>'DirectorioController@delete']);
+$router->post('signin', ['as' => 'users.store', 'uses' => 'UserController@signIn']);
+$router->post('login', ['as' => 'users.logIn', 'uses' => 'UserController@logIn']);
 
+$router->group(['middleware' => 'auth'], function () use ($router) {
+    $router->get('directorios', ['as' => 'directorios', 'uses' => 'DirectorioController@index']);
+    $router->get('directorios/{id}', ['as' => 'directorios.show', 'uses' => 'DirectorioController@show']);
+    $router->post('directorios', ['as' => 'directorios.store', 'uses' => 'DirectorioController@store']);
+    $router->put('directorios/{id}', ['as' => 'directorios.update', 'uses' => 'DirectorioController@update']);
+    $router->delete('directorios/{id}', ['as' => 'directorios.delete', 'uses' => 'DirectorioController@delete']);
+
+    $router->post('logout', ['as' => 'logout', 'uses' => 'UserController@logOut']);
+
+    $router->get('user', function () use($router){
+        return auth()->user();
+    });
+});

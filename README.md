@@ -3,7 +3,7 @@ It's a simple backend CRUD make with:
 
 [Lumen](https://lumen.laravel.com/) Laravel Website.
 
-##General instructions
+## General instructions
 In your DB gestor create a new database for this project.
 ```
 create database DBNAME;
