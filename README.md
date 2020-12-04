@@ -3,6 +3,13 @@ It's a simple backend CRUD make with:
 
 [Lumen](https://lumen.laravel.com/) Laravel Website.
 
+
+## First of all
+When you clone this repositorie open the terminal and type
+```
+composer install
+```
+
 ## General instructions
 In your DB gestor create a new database for this project.
 ```
@@ -11,7 +18,7 @@ create database DBNAME;
 
 To use this backend you must to clone this repositorie.
 
-And change some things in .env archive like you have in your DB 
+Rename ".env.example" to .env and change some things in archive like you have in your DB 
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1

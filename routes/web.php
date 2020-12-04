@@ -21,11 +21,12 @@ $router->post('signin', ['as' => 'users.store', 'uses' => 'UserController@signIn
 $router->post('login', ['as' => 'users.logIn', 'uses' => 'UserController@logIn']);
 
 $router->group(['middleware' => 'auth'], function () use ($router) {
-    $router->get('directorios', ['as' => 'directorios', 'uses' => 'DirectorioController@index']);
-    $router->get('directorios/{id}', ['as' => 'directorios.show', 'uses' => 'DirectorioController@show']);
-    $router->post('directorios', ['as' => 'directorios.store', 'uses' => 'DirectorioController@store']);
-    $router->put('directorios/{id}', ['as' => 'directorios.update', 'uses' => 'DirectorioController@update']);
-    $router->delete('directorios/{id}', ['as' => 'directorios.delete', 'uses' => 'DirectorioController@delete']);
+
+    $router->get('rooms', ['as' => 'rooms', 'uses' => 'RoomsController@index']);
+    $router->get('rooms/{id}', ['as' => 'rooms.show', 'uses' => 'RoomsController@show']);
+    $router->post('add-room', ['as' => 'rooms.store', 'uses' => 'RoomsController@store']);
+    $router->put('update-room/{id}', ['as' => 'rooms.update', 'uses' => 'RoomsController@update']);
+    $router->delete('delete-room/{id}', ['as' => 'rooms.delete', 'uses' => 'RoomsController@delete']);
 
     $router->post('logout', ['as' => 'logout', 'uses' => 'UserController@logOut']);
 
