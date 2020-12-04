@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Symfony\Component\Console\Input\Input;
 
 class UserController extends Controller
 {
