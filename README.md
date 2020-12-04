@@ -35,14 +35,30 @@ php artisan migrate
 Once you're in your favorite IDE or not, go to the Terminal and go to the project path
 and run with this command
 ```
-php -S localhost:8000 -t ./public
+php -S yourIp:8000 -t ./public
 ```
 
-Open Postman and type this url to use it
+To add and use your own user must to do those things:
 ```
-GET all: http://localhost:8000/directorios
-GET One by 'nombre_completo' or 'telefono': http://localhost:8000/directorios?txtBuscar=XXXX
+Open postman and type the url http://yourIp:8000/api/signin with POST method
+Select x-www-form-urlencoded
+Add: 
+key: dni value: 12345678X
+key: email value: youremail@email.com
+key: name value: yourname
+key: password value: yourpassword
+key: password_confirmation value: yourpassword
 ```
+Then , when you create the user , go to:
+```
+ http://yourIp:8000/api/login with POST method
+Select x-www-form-urlencoded
+Add: 
+key: email value: youremail@email.com
+key: password value: yourpassword
+```
+And it generate a token.
+
 
 ## Made with
 [Php Storm](https://www.jetbrains.com/es-es/phpstorm/) Website.
@@ -50,8 +66,6 @@ GET One by 'nombre_completo' or 'telefono': http://localhost:8000/directorios?tx
 [Postman](https://www.postman.com/) To check the backend works well.
 
 Readme.md template by [Villanuevand](https://gist.github.com/Villanuevand/6386899f70346d4580c723232524d35a)
-
-Github Icons by [rxaviers](https://gist.github.com/rxaviers/7360908)
 
 ---
 💻 with 💜 by [TeteV](https://github.com/TeteV) 🐦
