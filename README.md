@@ -27,7 +27,7 @@ DB_DATABASE=DBNAME
 DB_USERNAME=USERNAME
 DB_PASSWORD=USERPSWD
 ```
-To migrate Database
+###To migrate Database
 ```
 php artisan migrate
 ```
@@ -38,26 +38,44 @@ and run with this command
 php -S yourIp:8000 -t ./public
 ```
 
-To add and use your own user must to do those things:
+###To add a user
+You need a user to do some things like the crud
 ```
 Open postman and type the url http://yourIp:8000/api/signin with POST method
-Select x-www-form-urlencoded
+Select form-data
 Add: 
 key: dni value: 12345678X
 key: email value: youremail@email.com
 key: name value: yourname
 key: password value: yourpassword
-key: password_confirmation value: yourpassword
+and if you want
+key: url_image (type file) value: select file
 ```
 Then , when you create the user , go to:
 ```
- http://yourIp:8000/api/login with POST method
+http://yourIp:8000/api/login with POST method
 Select x-www-form-urlencoded
 Add: 
 key: email value: youremail@email.com
 key: password value: yourpassword
 ```
-And it generate a token.
+And it generate a token, save it.
+
+###To add a room
+With the saved token you must to
+```
+Open postman and type the url http://yourIp:8000/add-room with POST method
+Select form-data
+key: num value: 345 (for example)
+key: num_ppl value: 3
+key: size value: 24
+key: avaible value: 0
+key: api_token value: yourSavedToken
+and if you want
+key: url_image (type file) value: select file
+```
+
+
 
 
 ## Made with

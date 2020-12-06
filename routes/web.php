@@ -28,10 +28,15 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 $router->group(['middleware' => 'auth'], function () use ($router) {
 
     $router->get('rooms', ['as' => 'rooms', 'uses' => 'RoomsController@index']);
-    $router->get('rooms/{id}', ['as' => 'rooms.show', 'uses' => 'RoomsController@show']);
+    $router->get('rooms/{num}', ['as' => 'rooms.show', 'uses' => 'RoomsController@show']);
     $router->post('add-room', ['as' => 'rooms.store', 'uses' => 'RoomsController@store']);
-    $router->put('update-room/{id}', ['as' => 'rooms.update', 'uses' => 'RoomsController@update']);
-    $router->delete('delete-room/{id}', ['as' => 'rooms.delete', 'uses' => 'RoomsController@delete']);
+    $router->put('update-room/{num}', ['as' => 'rooms.update', 'uses' => 'RoomsController@update']);
+    $router->delete('delete-room/{num}', ['as' => 'rooms.delete', 'uses' => 'RoomsController@delete']);
+
+    $router->get('users', ['as' => 'users', 'uses' => 'UserController@index']);
+    $router->get('user/{dni}', ['as' => 'user.show', 'uses' => 'UserController@show']);
+    $router->put('update-user/{dni}', ['as' => 'user.update', 'uses' => 'UserController@update']);
+    $router->delete('delete-user/{dni}', ['as' => 'user.delete', 'uses' => 'UserController@delete']);
 
     $router->post('logout', ['as' => 'logout', 'uses' => 'UserController@logOut']);
 

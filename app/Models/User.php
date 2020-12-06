@@ -26,6 +26,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'name',
         'email',
         'password',
+        'url_img',
         'api_token'
     ];
 

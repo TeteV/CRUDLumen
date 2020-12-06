@@ -36,6 +36,8 @@ class RoomsController extends Controller
         ]);
 
         $input = $request ->all();
+        if ($request->has("url_img"))
+            $input["url_img"] = $this->loadImage($request->url_img);
         Rooms::create($input);
 
         return response()->json([
@@ -53,6 +55,9 @@ class RoomsController extends Controller
             'avaible'=>'required'
         ]);
         $input = $request ->all();
+        if ($request->has("url_img"))
+            $input["url_img"] = $this->loadImage($request->url_image);
+
         $room = Rooms::where('num',$num);
         $room->update($input);
         return response()->json([
@@ -70,5 +75,11 @@ class RoomsController extends Controller
             'res'=>true,
             'message'=>'Registro eliminado correctamente'
         ]);
+    }
+
+    public function loadImage($file){
+        $photoName = time().".". $file->getClientOriginalExtension();
+        $file->move(base_path("/public/rooms_image"),$photoName);
+        return $photoName;
     }
 }
