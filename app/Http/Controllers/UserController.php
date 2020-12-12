@@ -8,7 +8,6 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Symfony\Component\Console\Input\Input;
 
 class UserController extends Controller
 {
@@ -74,7 +73,11 @@ class UserController extends Controller
                 'message'=>'User not exists'
             ]);
         }
+    }
 
+    //getDni of a user
+    public function getDni($id){
+       return User::where('id',$id)->get("dni");
     }
 
     //PUT
@@ -83,7 +86,8 @@ class UserController extends Controller
         $data = [$request];
         $validator = \Validator::make($data,[
             'dni'=>'required|min:9|max:10',
-            'name'=>'required'
+            'name'=>'required',
+            'email'=>'required'
         ]);
         $input = $request ->all();
         if ($request->has("url_img"))

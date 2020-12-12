@@ -21,7 +21,7 @@ class Rooms extends Migration
             $table->string('url_img')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->primary('num');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             //$table->timestamps();
 
         });
@@ -34,6 +34,6 @@ class Rooms extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('directorios');
+        Schema::dropIfExists('rooms');
     }
 }

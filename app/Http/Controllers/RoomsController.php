@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 
 class RoomsController extends Controller
-{
+{ //php -S 192.168.1.129:8000 -t ./public
     //Get 1 or all
     public function index(Request $request){
             return Rooms::all();
@@ -22,6 +22,18 @@ class RoomsController extends Controller
             return response()->json([
                 'res'=>false,
                 'message'=>'Rooms no exists'
+            ]);
+        }
+
+    }
+
+    public function searchAvaible($numPpl){
+        if ($numPpl>0){
+            return Rooms::where('num_ppl','>=',$numPpl)->where('avaible',1)->get();
+        }else{
+            return response()->json([
+                'res'=>false,
+                'message'=>'Rooms not Found'
             ]);
         }
 
