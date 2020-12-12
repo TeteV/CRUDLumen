@@ -27,7 +27,7 @@ DB_DATABASE=DBNAME
 DB_USERNAME=USERNAME
 DB_PASSWORD=USERPSWD
 ```
-###To migrate Database
+##To migrate Database
 ```
 php artisan migrate
 ```
@@ -38,7 +38,7 @@ and run with this command
 php -S yourIp:8000 -t ./public
 ```
 
-###To add a user
+##To add a user
 You need a user to do some things like the crud
 ```
 Open postman and type the url http://yourIp:8000/api/signin with POST method
@@ -61,7 +61,7 @@ key: password value: yourpassword
 ```
 And it generate a token, save it.
 
-###To add a room
+##To add a room
 With the saved token you must to
 ```
 Open postman and type the url http://yourIp:8000/add-room with POST method
